@@ -1,0 +1,6 @@
+numb = input()
+L = (int(numb[2]) + int(numb[1]))
+F = (int(numb[0]) + int(numb[1]))
+first = max(L, F)
+last = min(L, F)
+print(f'{first}{last}')

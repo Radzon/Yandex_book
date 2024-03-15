@@ -1,0 +1,5 @@
+a = input()
+b = input()
+c = input()
+name = min(a, b, c)
+print(name)
