@@ -45,7 +45,7 @@ def user_validation(*args, **kwargs) -> dict:
     except Exception:
         raise KeyError
 
-    if not all([field in allowed for field in user.keys()]):
+    if not all(field in allowed for field in user.keys()):
         raise KeyError
 
     name_validation(user['last_name'])
@@ -53,3 +53,6 @@ def user_validation(*args, **kwargs) -> dict:
     username_validation(user['username'])
 
     return user
+
+
+print(user_validation(last_name="Иванов", first_name="Иван", username="ivanych45"))
