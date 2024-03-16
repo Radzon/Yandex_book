@@ -18,16 +18,12 @@ def password_validation(password, min_length=8, possible_chars='abcdefghijklmnop
     if not isinstance(password, str):
         raise TypeError
     if len(password) < min_length:
-         raise MinLengthError('MinLengthError')
+        raise MinLengthError('MinLengthError')
     if not all(i.lower() in possible_chars for i in password):
         raise PossibleCharError('PossibleCharError')
-    if not at_least_one:
+    if not any(at_least_one(i) for i in password):
         raise NeedCharError('NeedCharError')
     return hashlib.sha256(password.encode()).hexdigest()
 
 
-print(password_validation(
-    "$uNri$e_777",
-    min_length=6,
-    at_least_one=lambda char: char in "!@#$%^&*()_"
-))
+print(password_validation("Hello12345"))
